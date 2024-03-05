@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const accountRouter = require("./routes/accountRouter.js");
+const apartmentRouter = require("./routes/apartmentRouter.js");
+const ownerRouter = require("./routes/ownerRouter.js");
+const tenantRouter = require("./routes/tenantRouter.js");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -22,6 +25,9 @@ db.once("open", function () {
 });
 
 app.use("/account", accountRouter);
+app.use("/apartments", apartmentRouter);
+app.use("/owner", ownerRouter);
+app.use("/tenant", tenantRouter);
 
 app.use((req , res)=>{
     res.send("An error occurred fetching the resource!");

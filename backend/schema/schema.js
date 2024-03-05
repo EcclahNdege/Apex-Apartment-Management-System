@@ -8,12 +8,20 @@ const userSchema = new mongoose.Schema({
     },
     password : String,
     email : String,
-    role : String
+    role : String,
+    apartments : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Apartment"
+    }]
 });
 
 const User = mongoose.model("User" , userSchema);
 
 const apartmentSchema = new mongoose.Schema({
+    name : {
+        type : String,
+        required : true
+    },
     owner : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "User",
@@ -22,7 +30,15 @@ const apartmentSchema = new mongoose.Schema({
     address : String,
     rooms : Number,
     rent : Number,
-    occupiedRooms : Number
+    occupiedRooms : Number,
+    tenants : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Tenant"
+    }],
+    feedback : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Feedback"
+    }]
 });
 
 const Apartment = mongoose.model("Apartment" , apartmentSchema);
