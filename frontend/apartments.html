@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -31,10 +32,16 @@
         <h2>Apartments</h2>
         <div id="apartment-container">
             <div class="apartment" id="apartment1" onclick="viewApartment(`apartment1`)">
-                <h3>La Duvet Apartments</h3>
-                <address>Kimathi street, Bomas, Nyeri</address>
-                <h4>Rent</h4>
-                <p>Ksh 4000</p>
+                <div class="apartmentDetails">
+                    <h3>La Duvet Apartments</h3>
+                    <address>Kimathi street, Bomas, Nyeri</address>
+                    <h4>Rent</h4>
+                    <span>Ksh 4000</span>
+                </div>
+                <div class="apartmentBtns">
+                    <button class="btn" onclick="viewApartment(`apartment1`)">View</button>
+                    <button class="btn" onclick="bookApartment(`apartment1`)">Book</button>
+                </div>
             </div>
         </div>
     </div>

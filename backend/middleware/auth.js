@@ -8,7 +8,7 @@ dotenv.config();
 const signupNewUser = async (req , res , next)=>{
     let newUser = new User(req.body);
     let dbUser = await User.findOne({email : req.body.email});
-    if(dbUser) return res.status(400).send("User exists");
+    if(dbUser) return res.status(406).send("User exists");
     bcrypt.hash(newUser.password , 10).then(async(hash , err)=>{
         if(err) return res.sendStatus(400);
         newUser.password = hash;
@@ -16,7 +16,8 @@ const signupNewUser = async (req , res , next)=>{
         let token = jwt.sign(JSON.stringify(newUser), process.env.JWT_SECRET);
 
         res.cookie("token" ,token , {
-            httpOnly : true
+            httpOnly : true,
+            path : "/"
         });
         res.sendStatus(201);
     });
@@ -29,7 +30,8 @@ const loginUser = async (req , res , next)=>{
     if(!confirmed) return res.sendStatus(401);
     let token = jwt.sign(JSON.stringify(dbUser), process.env.JWT_SECRET);
     res.cookie("token" ,token , {
-        httpOnly : true
+        httpOnly : true,
+        path : "/"
     });
     res.sendStatus(200);
 }
