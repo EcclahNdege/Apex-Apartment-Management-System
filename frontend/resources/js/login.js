@@ -6,7 +6,7 @@ loginForm.addEventListener('submit', function(event){
     let email = loginForm.email.value;
     let password = loginForm.password.value;
 
-    fetch("http://localhost:3000/account/login", {
+    fetch("https://apex-apartment-management-system.onrender.com/account/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ registrationForm.addEventListener('submit', function(event){
         return;
     }
 
-    fetch("http://localhost:3000/account/signup", {
+    fetch("https://apex-apartment-management-system.onrender.com/account/signup", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

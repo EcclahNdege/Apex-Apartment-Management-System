@@ -1,5 +1,5 @@
 function getDashboard(){
-    fetch("http://localhost:3000/tenant/dashboard" , {
+    fetch("https://apex-apartment-management-system.onrender.com/tenant/dashboard" , {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
