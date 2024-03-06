@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Apartments</title>
     <link rel="stylesheet" href="./resources/css/index.css">
+    <link rel="stylesheet" href="./resources/css/apartments.css">
 </head>
 <body>
     <div class="header">
@@ -28,6 +29,15 @@
     </div>
     <div class="container">
         <h2>Apartments</h2>
+        <div id="apartment-container">
+            <div class="apartment" id="apartment1" onclick="viewApartment(`apartment1`)">
+                <h3>La Duvet Apartments</h3>
+                <address>Kimathi street, Bomas, Nyeri</address>
+                <h4>Rent</h4>
+                <p>Ksh 4000</p>
+            </div>
+        </div>
     </div>
+    <script src="./resources/js/apartments.js"></script>
 </body>
 </html>
