@@ -55,6 +55,7 @@ const deleteFeedback = async (req , res , next)=>{
         return;
     }
     await Feedback.deleteOne(feedback);
+    await Apartment.updateOne({feedback : feedback._id} , {$pull : {feedback : feedback._id}});
     res.sendStatus(200);
 }
 
