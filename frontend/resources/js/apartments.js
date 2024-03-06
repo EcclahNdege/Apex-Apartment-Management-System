@@ -1,7 +1,7 @@
 let apartmentContainer = document.getElementById('apartment-container');
 
 function getApartments() {
-    fetch("http://localhost:3000/apartments/").then(response => {
+    fetch("https://apex-apartment-management-system.onrender.com/apartments/").then(response => {
         return response.json();
     })
     .then(data => {
