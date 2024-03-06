@@ -88,6 +88,13 @@ const updateApartment = async (req , res , next)=>{
 
 const deleteApartment = async (req , res , next)=>{
     await Apartment.findByIdAndDelete(req.params.id);
+    await Tenant.deleteMany({apartment : req.params.id});
+    await Feedback.deleteMany({apartment : req.params.id});
+    await User.findByIdAndUpdate(req.user._id , {
+        $pull : {
+            apartments : req.params.id
+        }
+    });
     res.sendStatus(200);
 }
 
@@ -110,7 +117,8 @@ const createTenant = async (req , res , next)=>{
     await Apartment.findByIdAndUpdate(req.params.id , {
         $push : {
             tenants : newTenant._id
-        }
+        },
+        occupiedRooms : $inc(1),
     });
     res.sendStatus(201);
 }
@@ -122,6 +130,12 @@ const updateTenant = async (req , res , next)=>{
 
 const deleteTenant = async (req , res , next)=>{
     await Tenant.findByIdAndDelete(req.params.tenantId);
+    await Apartment.findByIdAndUpdate(req.params.id , {
+        $pull : {
+            tenants : req.params.tenantId
+        },
+        occupiedRooms : $inc(-1),
+    });
     res.sendStatus(200);
 }
 
@@ -156,6 +170,11 @@ const updateFeedback = async (req , res , next)=>{
 
 const deleteFeedback = async (req , res , next)=>{
     await Feedback.findByIdAndDelete(req.params.feedbackId);
+    await Apartment.findByIdAndUpdate(req.params.id , {
+        $pull : {
+            feedback : req.params.feedbackId
+        }
+    });
     res.sendStatus(200);
 }
 
