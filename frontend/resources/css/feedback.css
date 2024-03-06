@@ -1,0 +1,15 @@
+#feedbackContainer{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+}
+
+.feedback{
+    background-color: #00000033;
+    padding: 1em;
+    border-radius: 1em;
+    width: 100%;
+}
