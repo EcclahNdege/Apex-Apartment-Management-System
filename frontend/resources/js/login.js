@@ -16,7 +16,7 @@ loginForm.addEventListener('submit', function(event){
         body: JSON.stringify({email, password})
     }).then(response => {
         if(response.status === 200){
-            //window.location.href = 'apartments.html';
+            window.location.href = 'apartments.html';
         }
         else if(response.status === 401){
             alert('Invalid email or password');
