@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "http://localhost:5500",
+    origin: ["http://localhost:5500", "https://apex-apartment-management-system-frontend.onrender.com"],
     credentials: true,
     methods: "GET, POST, PUT, DELETE"
 }));
