@@ -1,18 +1,19 @@
-function getDashboard(){
-    function formatPayments(payments){
-        payments = payments.reverse();
-        let htmlString = '';
-        for(let payment of payments){
+function getFeedbacks(){
+    function formatFeedbacks(data){
+        let htmlString='';
+        for(let feedback of data){
+            console.log(feedback);
             htmlString += `
-            <div class="payment">
-                <p>Amount: ${payment.amount}</p>
-                <p>Date: ${new Date(payment.date).toLocaleString()}</p>
+            <div class="feedback">
+                <h3>${feedback.user.username}</p>
+                <p>${feedback.text}</p>
+                <p>${new Date(feedback.date).toLocaleString()}</p>
             </div>
             `
         }
         return htmlString;
     }
-    fetch("https://apex-apartment-management-system.onrender.com/tenant/dashboard" , {
+    fetch("https://apex-apartment-management-system.onrender.com/tenant/feedbacks" , {
         method: "GET",
         mode : "cors",
         credentials : "include",
@@ -20,33 +21,20 @@ function getDashboard(){
             "Content-Type": "application/json",
         }
     }).then(response => {
-        if(response.status === 401 || response.status === 403){
-            window.location.href = 'login.html';
-        }
         return response.json();
     }).then(data => {
+        console.log(data);
         let container = document.getElementById("container");
         container.innerHTML = "";
         let user = data.user;
         let apartment = data.apartment;
         container.innerHTML = `
-        <h2>Welcome back, ${user.username}</h2>
-        <h3>Your information</h3>
-        <p>Username: ${user.username}</p>
-        <p>Email: ${user.email}</p>
-        <h3>Your Apartment</h3>
-        <p>Apartment Name: ${apartment.name}</p>
-        <p>Location: ${apartment.address}</p>
-        <p>Rent: ${apartment.rent}</p>
-        <h3>Your Payments</h3>
-        <div id="payments">
-        ${formatPayments(data.paymentHistory)}
-        </div>
+        ${formatFeedbacks(data)}
         `
     });
 }
 
-getDashboard();
+getFeedbacks();
 
 function logout(){
     fetch("https://apex-apartment-management-system.onrender.com/account/logout", {

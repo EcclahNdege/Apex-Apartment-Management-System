@@ -5,11 +5,13 @@
     align-items: center;
     justify-content: center;
     width: 95%;
+    gap: 1em;
 }
 
 .feedback{
     background-color: #00000033;
     padding: 1em;
     border-radius: 1em;
-    width: 100%;
+    width: 95%;
+    margin-top: 1em;
 }
