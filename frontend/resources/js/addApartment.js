@@ -22,11 +22,11 @@ apartmentForm.addEventListener('submit', function (e) {
     })
         .then(response => {
             if(response.status === 401) {
-                //window.location.href = 'login.html';
+                window.location.href = 'login.html';
                 return;
             }
             else if(response.status === 403){
-                //window.location.href = 'login.html';
+                window.location.href = 'login.html';
                 return;
             }
             else if(response.status === 400) {
