@@ -1,7 +1,7 @@
 const {User , Apartment , Tenant , Feedback} = require("../schema/schema.js");
 
 const viewDashboard = async (req , res , next)=>{
-    let tenantDetails = await Tenant.findOne({user : req.user._id}).populate("apartment");
+    let tenantDetails = await Tenant.findOne({user : req.user._id}).populate("apartment").populate("user");
     if(!tenantDetails){
         res.sendStatus(404);
         return;
