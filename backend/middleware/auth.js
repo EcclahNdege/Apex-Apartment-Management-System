@@ -17,7 +17,9 @@ const signupNewUser = async (req , res , next)=>{
 
         res.cookie("token" ,token , {
             httpOnly : true,
-            path : "/"
+            path : "/",
+            maxAge : 1000 * 60 * 60 * 12,
+            sameSite : "none"
         });
         res.sendStatus(201);
     });
@@ -31,7 +33,9 @@ const loginUser = async (req , res , next)=>{
     let token = jwt.sign(JSON.stringify(dbUser), process.env.JWT_SECRET);
     res.cookie("token" ,token , {
         httpOnly : true,
-        path : "/"
+        path : "/",
+        maxAge : 1000 * 60 * 60 * 12,
+        sameSite : "none"
     });
     res.sendStatus(200);
 }
