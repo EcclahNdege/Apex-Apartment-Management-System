@@ -15,6 +15,8 @@ registrationForm.addEventListener('submit', function(event){
 
     fetch("https://apex-apartment-management-system.onrender.com/account/signup", {
         method: 'POST',
+        mode : "cors",
+        credentials : "include",
         headers: {
             'Content-Type': 'application/json'
         },

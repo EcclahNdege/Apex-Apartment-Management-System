@@ -8,6 +8,8 @@ loginForm.addEventListener('submit', function(event){
 
     fetch("https://apex-apartment-management-system.onrender.com/account/login", {
         method: 'POST',
+        mode : "cors",
+        credentials : "include",
         headers: {
             'Content-Type': 'application/json'
         },
