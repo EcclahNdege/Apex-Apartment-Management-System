@@ -23,6 +23,15 @@ function getDashboard(){
         if(response.status === 401 || response.status === 403){
             window.location.href = 'login.html';
         }
+        else if(response.status == 404){
+            let container = document.getElementById("container");
+            container.innerHTML = `
+            <h2>Welcome back</h2>
+            <p>It looks like you haven't been assigned the apartment yet. Please contact your landlord.</p>
+            <p>If already contacted, please wait for the landlord to assign the apartment to you.</p>
+            <p>If you are a landlord, consider going to <a href="owner-portal.html">this portal</a> to assign an apartment to this tenant.</p>
+            `
+        }
         return response.json();
     }).then(data => {
         let container = document.getElementById("container");

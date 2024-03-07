@@ -1,5 +1,6 @@
 function getFeedbacks(){
     function formatFeedbacks(data){
+        data = data.reverse();
         let htmlString='';
         for(let feedback of data){
             console.log(feedback);
@@ -25,10 +26,9 @@ function getFeedbacks(){
     }).then(data => {
         console.log(data);
         let container = document.getElementById("container");
-        container.innerHTML = "";
         let user = data.user;
         let apartment = data.apartment;
-        container.innerHTML = `
+        container.innerHTML += `
         ${formatFeedbacks(data)}
         `
     });

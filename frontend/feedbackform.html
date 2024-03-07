@@ -1,22 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Apartments</title>
     <link rel="stylesheet" href="./resources/css/index.css">
-    <link rel="stylesheet" href="./resources/css/payRent.css">
+    <link rel="stylesheet" href="./resources/css/feedbackForm.css">
 </head>
 <body>
     <div class="header">
-        <h1>Apex Apartments - Tenant</h1>
+        <h1>Apex Apartments</h1>
         <div class="call-to-action">
             <a onclick="logout()" href="#">Logout</a>
         </div>
     </div>
     <div class="nav">
-        <a href="tenant-portal.html" class="nav-item active">Tenant Portal</a>
+        <a href="tenant-portal.html" class="nav-item">Tenant Portal</a>
         <a href="feedback.html" class="nav-item">Feedback hub</a>
-        <a href="feedbackform.html" class="nav-item">Give feedback</a>
+        <a href="feedbackform.html" class="nav-item active">Give feedback</a>
         <a href="pay-rent.html" class="nav-item">Pay Rent</a>
         <a href="payment-history.html" class="nav-item">Payment History</a>
         <a href="privacy-policy.html" class="nav-item">Privacy Policy</a>
@@ -24,19 +25,15 @@
         <a href="contact.html" class="nav-item">Contact Us</a>
     </div>
     <div class="container" id="container">
-        <h2>Payment form</h2>
-        <form id="paymentForm">
+        <h2>Give feedback</h2>
+        <form id="feedbackForm">
             <div class="form-group">
-                <label for="amount">Amount</label>
-                <input type="number" id="amount" name="amount" required>
+                <label for="feedback">What do you think of this apartment?</label>
+                <textarea id="text" name="feedback" required></textarea>
             </div>
-            <div class="form-group">
-                <label for="reason">Reason</label>
-                <input type="text" id="reason" name="reason" required>
-            </div>
-            <button type="submit">Pay</button>
+            <button type="submit">Submit feedback</button>
         </form>
     </div>
-    <script defer src="./resources/js/payRent.js"></script>
+    <script src="./resources/js/feedbackForm.js"></script>
 </body>
 </html>
