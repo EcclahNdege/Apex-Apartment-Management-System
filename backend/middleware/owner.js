@@ -48,12 +48,7 @@ const checkOwnership = async (req , res , next)=>{
 }
 
 const getApartments = async (req , res , next)=>{
-    let apartments = await Apartment.find({owner : req.user._id}).populate({
-        path : "feedback",
-        populate : {
-            path : "tenant"
-        }
-    });
+    let apartments = await Apartment.find({owner : req.user._id}).populate({path: "feedback", populate : "user"}).populate("tenants");
     res.json(apartments);
 }
 
