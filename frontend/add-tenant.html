@@ -15,9 +15,9 @@
     </div>
     <div class="nav">
         <a href="owner-portal.html" class="nav-item">Owner Portal</a>
-        <a href="owner-apartment.html" class="nav-item active">Apartment</a>
+        <a href="owner-apartment.html" class="nav-item">Apartment</a>
         <a href="owner-tenants.html" class="nav-item">Tenants</a>
-        <a href="add-tenant.html" class="nav-item">Add Tenant</a>
+        <a href="add-tenant.html" class="nav-item active">Add Tenant</a>
         <a href="owner-payments.html" class="nav-item">Payments</a>
         <a href="owner-feedback.html" class="nav-item">Feedback hub</a>
         <a href="owner-feedbackform.html" class="nav-item">Give feedback</a>
@@ -29,7 +29,11 @@
         <select id="apartment-select" class="input">
             <option value="0">Select an apartment</option>
         </select>
+        <select id="user-select" class="input">
+            <option value="0">Select the user</option>
+        </select>
+        <button class="btn" onclick="addTenant()">Add Tenant</button>
     </div>
-    <script src="./resources/js/ownerApartment.js"></script>
+    <script src="./resources/js/addTenant.js"></script>
 </body>
 </html>
