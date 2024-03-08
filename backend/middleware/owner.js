@@ -110,18 +110,24 @@ const getTenant = async (req , res , next)=>{
 }
 
 const createTenant = async (req , res , next)=>{
-    let newTenant = new Tenant(req.body);
+    try{
+        let newTenant = new Tenant(req.body);
     newTenant.apartment = req.params.id;
     newTenant.rent = (await Apartment.findById(req.params.id)).rent;
     newTenant.paymentHistory = [];
     await newTenant.save();
+    let apartment = await Apartment.findById(req.params.id);
+    let occupiedRooms = apartment.occupiedRooms + 1;
+    await apartment.save();
     await Apartment.findByIdAndUpdate(req.params.id , {
         $push : {
             tenants : newTenant._id
-        },
-        occupiedRooms : $inc(1),
+        }
     });
     res.sendStatus(201);
+    }catch(err){
+        res.sendStatus(400);
+    }
 }
 
 const updateTenant = async (req , res , next)=>{

@@ -31,6 +31,7 @@ db.once("open", function () {
     console.log("Connected to MongoDB");
 });
 
+app.use(express.static(__dirname + "/frontend"));
 app.use("/account", accountRouter);
 app.use("/apartments", apartmentRouter);
 app.use("/owner", ownerRouter);
