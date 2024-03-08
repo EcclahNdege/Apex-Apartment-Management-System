@@ -58,7 +58,13 @@ const getApartment = async (req , res , next)=>{
         populate : {
             path : "user"
         }
-    }).populate("tenants");
+    }).populate({
+        path : "tenants",
+        populate : {
+            path : "user"
+        }
+    
+    });
     res.json(apartment);
 }
 

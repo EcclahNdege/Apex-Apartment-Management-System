@@ -23,6 +23,7 @@ let getApartments = async () => {
 getApartments();
 
 select.addEventListener('change', () => {
+    if(select.value === 0) return;
     let apartmentId = select.value;
     fetch(`https://apex-apartment-management-system.onrender.com/owner/${apartmentId}`, {
         method: "GET",
