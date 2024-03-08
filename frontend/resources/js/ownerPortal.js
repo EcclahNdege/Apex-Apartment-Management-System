@@ -1,5 +1,5 @@
 function fetchDashboard(){
-    fetch("https://apex-apartment-management-system.onrender.com/account/profile" , {
+    fetch("https://apex-apartment-management-system.onrender.com/owner/apartments" , {
         method: 'GET',
         mode : "cors",
         credentials : "include",

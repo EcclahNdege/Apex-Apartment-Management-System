@@ -56,9 +56,9 @@ const getApartment = async (req , res , next)=>{
     let apartment = await Apartment.findById(req.params.id).populate({
         path : "feedback",
         populate : {
-            path : "tenant"
+            path : "user"
         }
-    });
+    }).populate("tenants");
     res.json(apartment);
 }
 
