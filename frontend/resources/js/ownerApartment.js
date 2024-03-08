@@ -25,6 +25,7 @@ getApartments();
 select.addEventListener('change', () => {
     if(select.value === 0) return;
     let apartmentId = select.value;
+    alert("Apartment changed to " + apartmentId);
     fetch(`https://apex-apartment-management-system.onrender.com/owner/${apartmentId}`, {
         method: "GET",
         headers: {
